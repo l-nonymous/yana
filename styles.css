@@ -1,4 +1,3 @@
-/* General styles */
 body {
     margin: 0;
     padding: 0;
@@ -11,7 +10,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Confetti container */
 .confetti-container {
     position: absolute;
     top: 0;
@@ -21,7 +19,6 @@ body {
     pointer-events: none;
 }
 
-/* Glowing and bouncing title styles */
 .birthday-title {
     position: absolute;
     top: 50px;
@@ -34,7 +31,6 @@ body {
     animation: glow 1.5s ease-in-out infinite alternate, bounce 2s infinite;
 }
 
-/* Glowing effect */
 @keyframes glow {
     from {
         text-shadow: 0 0 10px #fff, 0 0 20px #ff69b4, 0 0 30px #ff69b4, 0 0 40px #ff69b4, 0 0 50px #ff69b4, 0 0 60px #ff69b4, 0 0 70px #ff69b4;
@@ -44,7 +40,6 @@ body {
     }
 }
 
-/* Bounce effect */
 @keyframes bounce {
     0%, 100% {
         transform: translate(-50%, 0) scale(1);
@@ -54,12 +49,12 @@ body {
     }
 }
 
-/* Photocard styles */
 .photocard-container {
     display: flex;
     align-items: flex-start;
-    gap: 50px;
+    gap: 40px;
     z-index: 1;
+    padding-top: 10px;
 }
 
 .photocard {
@@ -81,7 +76,7 @@ body {
     transform: translateX(-50%);
     width: 320px;
     height: 50px;
-    background-color: #1b1234;
+    background-color: #1b1234; 
     border-radius: 10px 10px 0 0;
     z-index: 2;
     box-shadow: 0 5px 0 0 #ffc0cb;
@@ -127,13 +122,6 @@ body {
     border-radius: 10px;
 }
 
-.photocard p {
-    margin: 10px 0 0;
-    font-size: 24px;
-    color: #ff69b4;
-}
-
-/* Confetti styles */
 .confetti {
     position: absolute;
     top: -10px;
@@ -149,21 +137,21 @@ body {
     }
 }
 
-/* Email-like message box */
 .email-box {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    padding: 20px;
     opacity: 0;
     transition: opacity 1s ease-in-out;
-    display: none;
+    padding: 20px;
     z-index: 1000;
+    display: none;
 }
 
 .email-header {
@@ -184,63 +172,62 @@ body {
     line-height: 1.6;
 }
 
-/* Button to open the letter */
-.open-letter-button {
-    position: absolute;
-    bottom: 20px;
-    background-color: #ffffff;
-    color: #1b1234;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-    z-index: 1001;
-    display: block;
+.email-content p.signature {
+    text-align: right;
 }
 
-/* Responsive design */
+.open-letter-button {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #7369ff;
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    z-index: 100;
+    transition: background-color 0.3s;
+}
+
+.open-letter-button:hover {
+    background-color: #5b0a32;
+}
+
 @media (max-width: 768px) {
     .birthday-title {
-        font-size: 25px;
-        top: 20px;
+        font-size: 24px;
     }
 
     .photocard-container {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
     }
 
     .photocard {
-        width: 250px;
-        height: 250px;
-    }
-
-    .email-box {
         width: 90%;
-        padding: 15px;
+        margin-top: 20px;
     }
 
-    .email-content {
-        font-size: 16px;
+    .open-letter-button {
+        font-size: 20px;
     }
 }
 
 @media (max-width: 480px) {
     .birthday-title {
         font-size: 20px;
-        top: 15px;
+        top: 20px;
     }
 
-    .photocard {
-        width: 200px;
-        height: 200px;
+    .email-box {
+        padding: 10px;
     }
 
     .email-content {
-        font-size: 14px;
-    }
-
-    .open-letter-button {
-        padding: 8px 16px;
+        font-size: 16px;
     }
 }
